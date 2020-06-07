@@ -7,10 +7,13 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'eval-source-map',
     devServer: {
-        contentBase: path.join(__dirname, "public/"),
+        contentBase: path.join(__dirname, "dist/"),
         port: 3000,
         publicPath: "http://localhost:3000/dist/",
-        hotOnly: true
+        hotOnly: true,
+        watchContentBase: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ]
 })
