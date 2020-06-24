@@ -4,46 +4,28 @@ import AddHabit from "../../components/AddHabit";
 import HabitListItem from "../../components/HabitListItem";
 
 const New = () => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState(0);
-  const [unit, setUnit] = useState("");
+  const [habit, setState] = useState({ name: "", number: 0, unit: "" });
   const [habitList, setHabitList] = useState([]);
 
-  const add = () => {
-    const newHabit = { name, number, unit };
+  const addHabit = (e) => {
+    e.preventDefault();
+    const newHabit = { ...habit };
     const newHabitList = [...habitList, newHabit];
     setHabitList(newHabitList);
-    setName("");
-    setNumber(0);
-    setUnit("");
   };
 
-  const handleNameChange = (e) => {
-    const newValue = e.target.value;
-    setName(newValue);
-  };
-  const handleNumberChange = (e) => {
-    const newValue = e.target.value;
-    setNumber(newValue);
-  };
-  const handleUnitChange = (e) => {
-    const newValue = e.target.value;
-    setUnit(newValue);
+  const handleChange = (e) => {
+    setState({
+      ...habit,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <div>
       <h2>Register Page</h2>
       <Link to={"/"}>トップページ</Link>
-      <AddHabit
-        name={name}
-        number={number}
-        unit={unit}
-        handleNameChange={handleNameChange}
-        handleNumberChange={handleNumberChange}
-        handleUnitChange={handleUnitChange}
-        add={add}
-      />
+      <AddHabit habit={habit} handleChange={handleChange} addHabit={addHabit} />
       <ul>
         {habitList.map((habit) => (
           <HabitListItem name={habit.name} number={habit.number} unit={habit.unit} />
