@@ -1,15 +1,15 @@
 import React from "react";
 
-const AddHabit = (props) => (
-  <div>
+const AddHabit = ({ addHabit, habit, handleChange }) => (
+  <form onSubmit={addHabit}>
     <label>習慣の名前</label>
-    <input type="text" value={props.name} onChange={props.handleNameChange} />
+    <input type="text" name="name" value={habit.name} onChange={handleChange} />
     <label>数値</label>
-    <input type="number" value={props.number} onChange={props.handleNumberChange} />
+    <input type="number" name="number" value={habit.number} onChange={handleChange} />
     <label>単位</label>
-    <input type="text" value={props.unit} onChange={props.handleUnitChange} />
-    <button onClick={props.add}>登録</button>
-  </div>
+    <input type="text" name="unit" value={habit.unit} onChange={handleChange} />
+    <button type="submit">登録</button>
+  </form>
 );
 
 export default AddHabit;

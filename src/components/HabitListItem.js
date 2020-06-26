@@ -1,12 +1,12 @@
 import React from "react";
 
-const HabitListItem = (props) => (
+const HabitListItem = ({ name, number, unit }) => (
   <li>
-    習慣の名前：{props.name}
+    習慣の名前：{name}
     <br />
-    数値：{props.number}
+    数値：{number}
     <br />
-    単位：{props.unit}
+    単位：{unit}
   </li>
 );
 
