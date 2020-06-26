@@ -11,7 +11,7 @@ module.exports = merge(common, {
         port: 3000,
         historyApiFallback: true,
         publicPath: "http://localhost:3000",
-        hotOnly: true,
+        // hotOnly: true,
         watchContentBase: true,
     },
     plugins: [
