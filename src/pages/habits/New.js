@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AddHabit from "../../components/AddHabit";
 import HabitListItem from "../../components/HabitListItem";
+import { Habits } from "../../App";
 
 const New = () => {
   const [habit, setState] = useState({ name: "", number: 0, unit: "" });
-  const [habitList, setHabitList] = useState([]);
+  const [habitList, setHabitList] = useContext(Habits);
 
   const addHabit = (e) => {
     e.preventDefault();
