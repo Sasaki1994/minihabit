@@ -1,28 +1,15 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
 import { hot } from "react-hot-loader";
 import "./App.css";
-import Top from "./pages/Top";
-import New from "./pages/habits/New";
-
-export const Habits = React.createContext([]);
+import Routes from "./router/Routes";
+import {Provider} from "react-redux";
+import Store from "./Store";
 
 const App = () => {
-  const [habitList, setHabitList] = useState([]);
-
   return (
-    <div className="App">
-      <Habits.Provider value={[habitList, setHabitList]}>
-        <Router>
-          <Route exact path={"/"}>
-            <Top />
-          </Route>
-          <Route path={"/habits/new"}>
-            <New />
-          </Route>
-        </Router>
-      </Habits.Provider>
-    </div>
+      <Provider store={Store}>
+        <Routes />
+      </Provider>
   );
 };
 

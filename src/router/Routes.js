@@ -1,0 +1,19 @@
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Top from "../pages/Top";
+import New from "../pages/habits/New";
+
+const Routes = () => {
+    return (
+        <Router>
+          <Route exact path={"/"}>
+            <Top />
+          </Route>
+          <Route path={"/habits/new"}>
+            <New />
+          </Route>
+        </Router>
+    );
+}
+
+export default Routes;
