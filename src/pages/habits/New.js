@@ -1,39 +1,23 @@
-import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AddHabit from "../../components/AddHabit";
 import HabitListItem from "../../components/HabitListItem";
-import { Habits } from "../../App";
+import {useSelector} from "react-redux";
+
 
 const New = () => {
-  const [habit, setState] = useState({ name: "", number: 0, unit: "" });
-  const [habitList, setHabitList] = useContext(Habits);
-
-  const addHabit = (e) => {
-    e.preventDefault();
-    const newHabit = { ...habit };
-    const newHabitList = [...habitList, newHabit];
-    setHabitList(newHabitList);
-  };
-
-  const handleChange = (e) => {
-    setState({
-      ...habit,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  return (
+    const habitList = useSelector(state => state.habits)
+    return (
     <div>
       <h2>Register Page</h2>
       <Link to={"/"}>トップページ</Link>
-      <AddHabit habit={habit} handleChange={handleChange} addHabit={addHabit} />
+      <AddHabit />
       <ul>
         {habitList.map((habit) => (
-          <HabitListItem name={habit.name} number={habit.number} unit={habit.unit} />
+          <HabitListItem key={habit.name} name={habit.name} number={habit.number} unit={habit.unit} />
         ))}
       </ul>
     </div>
-  );
+    );
 };
 
 export default New;
