@@ -15,6 +15,10 @@ export const habits = (state = initialHabitList, action) => {
             const editIndex = habitIds.indexOf(action.habit.id)
             return [...state.slice(0,editIndex), action.habit, ...state.slice(editIndex+1)]
 
+        case 'DELETE_HABIT':
+            const deleteIndex = habitIds.indexOf(action.habit.id)
+            return [...state.slice(0,deleteIndex), ...state.slice(deleteIndex+1)]
+
         default:
             return state;
     }

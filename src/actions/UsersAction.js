@@ -1,7 +1,7 @@
 
-export const registerUser = (name) => {
+export const registerUser = (user) => {
     return {
         type: 'REGISTER',
-        user: {name: name}
+        user
     }
 }
