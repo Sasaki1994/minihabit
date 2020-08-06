@@ -14,7 +14,10 @@ const Top = () => {
         <Link to={"/habits/new"}>登録ページ</Link>
         <ul>
             {habitList.map((habit) => (
-                <HabitListItem key={habit.name} name={habit.name} number={habit.number} unit={habit.unit} />
+              <li key={habit.id}>
+                  <HabitListItem  name={habit.name} number={habit.number} unit={habit.unit} />
+                  <Link to={`/habits/${habit.id}/edit`}>編集</Link>
+              </li>
             ))}
         </ul>
     </div>
