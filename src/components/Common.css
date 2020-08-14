@@ -1,0 +1,29 @@
+.fl_start {
+  display: flex;
+  justify-content: flex-start;
+}
+.fl_end {
+  display: flex;
+  justify-content: flex-end;
+}
+.fl_center {
+  display: flex;
+  justify-content: center;
+}
+.fl_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.fl_alignStart {
+  display: flex;
+  align-items: flex-start;
+}
+.fl_alignEnd {
+  display: flex;
+  align-items: flex-end;
+}
+.fl_alignCenter {
+  display: flex;
+  align-items: center;
+}

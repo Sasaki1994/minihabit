@@ -1,0 +1,6 @@
+.headerCalender {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  overflow-x: auto;
+}

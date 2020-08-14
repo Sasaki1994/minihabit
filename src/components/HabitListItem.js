@@ -1,4 +1,6 @@
 import React from "react";
+import commonStyle from  './Common.css';
+import style from  './HabitListItem.css';
 
 const onClickBtn = (e) => {
   const btn = e.target;
@@ -6,21 +8,21 @@ const onClickBtn = (e) => {
 };
 
 const HabitListItem = ({ name, number, unit }) => (
-  <li className="habitList_item fl_alignCenter">
+  <li className={`${style.habitList_item} ${commonStyle.fl_alignCenter}`}>
     <button
-      type="button"
-      className="habitList_btn fl_center fl_alignCenter"
+      type={"button"}
+      className={`${style.habitList_btn} ${commonStyle.fl_center} ${commonStyle.fl_alignCenter}`}
       onClick={(e) => {
         onClickBtn(e);
       }}
     >
-      <i class="habitList_btn_check fas fa-check-circle"></i>
+      <i className={`${style.habitList_btn_check} fas fa-check-circle`} />
     </button>
-    <div className="habitList_body">
-      <p className="habitList_content">
+    <div className={style.habitList_body}>
+      <p className={style.habitList_content}>
         {name} {number} {unit}
       </p>
-      <p className="habitList_numberOfAchievementDays">◯日連続</p>
+      <p className={style.habitList_numberOfAchievementDays}>◯日連続</p>
     </div>
   </li>
 );
