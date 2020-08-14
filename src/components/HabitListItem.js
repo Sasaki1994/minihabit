@@ -1,10 +1,11 @@
 import React from "react";
-import commonStyle from  './Common.css';
-import style from  './HabitListItem.css';
+
+import commonStyle from "./Common.css";
+import style from "./HabitListItem.css";
 
 const onClickBtn = (e) => {
   const btn = e.target;
-  btn.classList.toggle("js_done");
+  btn.classList.toggle(style.js_done);
 };
 
 const HabitListItem = ({ name, number, unit }) => (
