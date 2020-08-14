@@ -16,7 +16,7 @@ const New = () => {
       <RegisteringButton text={"登録"} onClick={()=>console.log("ok")} />
       <CancelingButton className={style.buttonMargin} onClick={()=>console.log("ok")} />
     </div>
-    );
+  );
 };
 
 export default New;
