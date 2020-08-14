@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.inputBox {
+    color: #000000;
+    border: #C7C7C7 solid 1px;
+}
