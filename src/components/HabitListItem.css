@@ -1,0 +1,36 @@
+.habitList {
+}
+.habitList_item {
+  padding: 1.6rem;
+}
+.habitList_item:not(:first-child) {
+  border-top: 2px solid #eee;
+}
+.habitList_btn {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0.2rem solid #eee;
+}
+.habitList_btn_check {
+  font-size: 3rem;
+  color: #62d13b;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.habitList_btn_check.js_done {
+  opacity: 1;
+}
+.habitList_body {
+  margin-left: 1.6rem;
+}
+.habitList_content {
+  font-weight: bold;
+}
+.habitList_numberOfAchievementDays {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b4b4b4;
+  margin-top: 0.4rem;
+}
