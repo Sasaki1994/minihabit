@@ -14,7 +14,7 @@ const Routes = () => {
           <Route path={"/habits/new"}>
             <New />
           </Route>
-          <Route path={"/habits/edit"}>
+          <Route path={"/habits/:habitId/edit"}>
             <Edit />
           </Route>
           <Route path={"/users/new"}>
