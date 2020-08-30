@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../actions/ModalAction";
+import { registerRecord } from "../actions/RecordsAction";
 
 import HabitListItem from "../components/HabitListItem";
 import HeaderCalender from "../components/HeaderCalender";
@@ -13,38 +14,44 @@ import CancelingButton from "../components/CancelingButton";
 import style from "./Top.css";
 
 const Top = () => {
-  const habitList = useSelector((state) => state.habits);
+  const habits = useSelector((state) => state.habits);
   const user = useSelector((state) => state.user);
-  const isModalOpen = useSelector((state) => state.modal);
+  const modal = useSelector((state) => state.modal);
   const dispatch = useDispatch();
+
+  const habitList = habits.allIds.map((id) => habits.byId[id]);
+  const recordHabit = habits.byId[modal.habitId];
+
+  const [recordNumber, setRecNum] = useState(
+    recordHabit ? recordHabit.number : 1
+  );
 
   return (
     <div>
-      {isModalOpen ? (
+      {modal.isOpen ? (
         <Modal>
+          <h2 className={""}>{recordHabit.name}</h2>
+          <p>目標: {`${recordHabit.number}${recordHabit.unit}`}</p>
           <Input
             className={style.inputMargin}
-            label={"習慣の名前"}
-            type={"text"}
-            width={165}
-            name={"name"}
-          />
-          <Input
-            className={style.inputMargin}
-            label={"数値"}
+            label={"実績値"}
             type={"number"}
             width={55}
             name={"number"}
+            value={recordNumber}
+            onChange={(e) => setRecNum(e.target.value)}
           />
-          <Input
-            className={style.inputMargin}
-            label={"単位"}
-            type={"text"}
-            width={55}
-            name={"unit"}
+          <span>{recordHabit.unit}</span>
+          <RegisteringButton
+            text={"登録"}
+            onClick={() =>
+              dispatch(registerRecord(recordHabit.id, recordNumber))
+            }
           />
-          <RegisteringButton text={"登録"} />
-          <CancelingButton className={style.buttonMargin} onClick={() => dispatch(closeModal())} />
+          <CancelingButton
+            className={style.buttonMargin}
+            onClick={() => dispatch(closeModal())}
+          />
         </Modal>
       ) : (
         ``
@@ -56,12 +63,7 @@ const Top = () => {
       <HeaderCalender />
       <ul className={style.habitList}>
         {habitList.map((habit) => (
-          <HabitListItem
-            key={habit.name}
-            name={habit.name}
-            number={habit.number}
-            unit={habit.unit}
-          />
+          <HabitListItem key={habit.id} habit={habit} />
         ))}
       </ul>
     </div>
