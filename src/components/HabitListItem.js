@@ -6,14 +6,15 @@ import { openModal } from "../actions/ModalAction";
 import commonStyle from "./Common.css";
 import style from "./HabitListItem.css";
 
-const HabitListItem = ({ name, number, unit }) => {
+const HabitListItem = ({ habit }) => {
+  const { id, name, number, unit } = habit;
   const dispatch = useDispatch();
   return (
     <li className={`${style.habitList_item} ${commonStyle.fl_alignCenter}`}>
       <button
         type={"button"}
         className={`${style.habitList_btn} ${commonStyle.fl_center} ${commonStyle.fl_alignCenter}`}
-        onClick={() => dispatch(openModal())}
+        onClick={() => dispatch(openModal(id))}
       >
         <i className={`${style.habitList_btn_check} fas fa-check-circle`} />
       </button>

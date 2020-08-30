@@ -2,12 +2,14 @@ import { createStore } from "redux";
 import { habits } from "./reducers/HabitsReducer";
 import { user } from "./reducers/UserReducer";
 import { modal } from "./reducers/ModalReducer";
+import { records } from "./reducers/RecordsReducer";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
   habits,
   user,
   modal,
+  records,
 });
 
 export default createStore(

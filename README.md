@@ -25,14 +25,14 @@ https://www.figma.com/file/aRgMAIFlVJLPlXlM7OHtOO/minihabit?node-id=1%3A2
 {
   "habits": {
     "byId": {
-      "habit1": {
+      "1": {
           "id": 1,
           "name": "腕立て伏せ",
           "number": 1,
           "unit": "回",
           "userId": 1 
                 },
-      "habit2": {
+      "2": {
           "id": 2,
           "name": "読書",
           "number": 1,
@@ -50,13 +50,13 @@ https://www.figma.com/file/aRgMAIFlVJLPlXlM7OHtOO/minihabit?node-id=1%3A2
 
   "records": {
     "byId": {
-      "record1": {
+      "1": {
           "id": 1,
           "habitId": 1,
           "number": 1,
           "created_at": "2020-08-30 12:00:00" 
       },
-      "record2": {
+      "2": {
           "id": 2,
           "habitId": 2,
           "number": 4,
@@ -64,6 +64,11 @@ https://www.figma.com/file/aRgMAIFlVJLPlXlM7OHtOO/minihabit?node-id=1%3A2
       }
     },
     "allIds": [1, 2]
+  },
+
+  "modal": {
+    "isOpen": false,
+    "habitId": ""
   }
 
 }
