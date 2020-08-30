@@ -1,15 +1,15 @@
 .button {
-    color: #999999;
-    background-color: rgba(0,0,0,0);
-    border: none;
-    display: inline;
+  color: #999999;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  display: inline;
 }
 
 .button:hover {
-    cursor: pointer;
-    color: #808080;
+  cursor: pointer;
+  color: #808080;
 }
 
 .button:focus {
-    outline: 0;
+  outline: 0;
 }

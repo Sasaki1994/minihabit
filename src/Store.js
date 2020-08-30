@@ -1,12 +1,16 @@
-import {createStore} from "redux";
-import {habits} from "./reducers/HabitsReducer";
-import {user} from "./reducers/UserReducer";
-import {combineReducers} from "redux";
+import { createStore } from "redux";
+import { habits } from "./reducers/HabitsReducer";
+import { user } from "./reducers/UserReducer";
+import { modal } from "./reducers/ModalReducer";
+import { combineReducers } from "redux";
 
 const reducers = combineReducers({
   habits,
-  user
-})
+  user,
+  modal,
+});
 
-export default createStore(reducers,
-   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
