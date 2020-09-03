@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import { AuthProvider } from "../auth/AuthProvider";
 import Top from "../pages/Top";
 import New from "../pages/habits/New";
 import Edit from "../pages/habits/Edit";
@@ -7,20 +9,14 @@ import UserNew from "../pages/users/New";
 
 const Routes = () => {
   return (
-    <Router>
-      <Route exact path={"/"}>
-        <Top />
-      </Route>
-      <Route path={"/habits/new"}>
-        <New />
-      </Route>
-      <Route path={"/habits/:habitId/edit"}>
-        <Edit />
-      </Route>
-      <Route path={"/users/new"}>
-        <UserNew />
-      </Route>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <PrivateRoute exact path={"/"} component={Top} />
+        <PrivateRoute path={"/habits/new"} component={New} />
+        <PrivateRoute path={"/habits/:habitId/edit"} component={Edit} />
+        <Route path={"/users/new"} component={UserNew} />
+      </Router>
+    </AuthProvider>
   );
 };
 

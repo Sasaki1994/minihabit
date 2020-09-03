@@ -1,33 +1,23 @@
 import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
-import { registerUser } from "../../actions/UsersAction";
 import Input from "../../components/Input";
 import RegisteringButton from "../../components/RegisteringButton";
 import CancelingButton from "../../components/CancelingButton";
-import style from "./New.css";
-import { AuthContext } from "../../auth/AuthProvider";
+import style from "./Login.css";
 
-const New = () => {
-  const { signup } = useContext(AuthContext);
-  const initialUser = { name: "", email: "", password: "", confirmation: "" };
+const Login = () => {
+  const { login } = useContext(AuthContext);
+  const initialUser = { email: "", password: "" };
   const [user, setUser] = useState(initialUser);
   const dispatch = useDispatch();
   const history = useHistory();
 
   return (
     <div className={style.pageContainer}>
-      <h2 className={style.title}>ユーザーを登録する</h2>
-      <Input
-        className={style.inputMargin}
-        label={"名前"}
-        type={"text"}
-        width={165}
-        name={"name"}
-        value={user.name}
-        onChange={(e) => setUser({ ...user, name: e.target.value })}
-      />
+      <h2 className={style.title}>ログイン</h2>
       <Input
         className={style.inputMargin}
         label={"メール"}
@@ -46,21 +36,10 @@ const New = () => {
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
-      <Input
-        className={style.inputMargin}
-        label={"パスワード確認"}
-        type={"password"}
-        width={165}
-        name={"confirmation"}
-        value={user.confirmation}
-        onChange={(e) => setUser({ ...user, confirmation: e.target.value })}
-      />
+
       <RegisteringButton
-        text={"登録"}
-        onClick={() =>
-          signup(user.email, user.password, user.confirmation) &&
-          history.push("/")
-        }
+        text={"ログイン"}
+        onClick={() => login(user.email, user.password) && history.push("/")}
       />
       <CancelingButton
         className={style.buttonMargin}
@@ -70,4 +49,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default Login;
