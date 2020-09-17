@@ -10,8 +10,8 @@ import style from "./Edit.css";
 
 const Edit = () => {
   const { habitId } = useParams();
-  const habitList = useSelector((state) => state.habits);
-  const initialHabit = habitList.find((habit) => habit.id === Number(habitId));
+  const { habits } = useSelector((state) => state);
+  const initialHabit = habits.byId[habitId];
   const [habit, setHabit] = useState(initialHabit);
   const dispatch = useDispatch();
   const history = useHistory();
