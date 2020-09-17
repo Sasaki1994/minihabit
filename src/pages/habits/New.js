@@ -9,7 +9,7 @@ import CancelingButton from "../../components/CancelingButton";
 import style from "./New.css";
 
 const New = () => {
-  const initialHabit = { name: "", number: 1, unit: "" };
+  const initialHabit = { name: "", number: 1, unit: "", userId: 1 };
   const [habit, setHabit] = useState(initialHabit);
   const dispatch = useDispatch();
   const history = useHistory();

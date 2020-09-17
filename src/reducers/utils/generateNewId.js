@@ -1,6 +1,8 @@
-const generateNewId = (entity) => {
+export const generateNewId = (entity) => {
   const ids = entity.allIds;
-  return Math.max(...ids) + 1;
+  if (ids.length === 0) {
+    return 1;
+  } else {
+    return Math.max(...ids) + 1;
+  }
 };
-
-export default generateNewId;

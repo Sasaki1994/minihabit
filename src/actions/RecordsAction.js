@@ -4,3 +4,10 @@ export const registerRecord = (habitId, number) => {
     payload: { habitId, number },
   };
 };
+
+export const editRecord = (record) => {
+  return {
+    type: "REGISTER_RECORD",
+    record,
+  };
+};
