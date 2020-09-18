@@ -1,0 +1,14 @@
+.header {
+  background-color: #cccccc;
+  padding: 0.8rem 4.2rem;
+}
+
+.header_homeIcon {
+  color: #fff;
+  font-size: 2.4rem;
+}
+
+.header_homeIcon:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
