@@ -15,7 +15,7 @@ const Input = ({
   return (
     <div className={`${styles.container} ${className}`}>
       <label className={styles.label} style={{ fontSize: `${fontSize}pt` }}>
-        {label}
+        {label}：
       </label>
       <input
         className={styles.inputBox}

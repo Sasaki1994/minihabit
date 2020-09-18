@@ -1,18 +1,18 @@
 .habitList_item {
   padding: 1.6rem;
 }
-.habitList_item:not(:first-child) {
-  border-top: 2px solid #eee;
+.habitList_item {
+  border-bottom: 1px solid #f0f0f0;
 }
 .habitList_btn {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
   background-color: #fff;
-  border: 0.2rem solid #eee;
+  border: 0.1rem solid #ccc;
 }
 .habitList_btn_check {
-  font-size: 3rem;
+  font-size: 1.8rem;
   color: #62d13b;
   opacity: 0;
   transition: all 0.2s;
@@ -21,14 +21,18 @@
   opacity: 1;
 }
 .habitList_body {
-  margin-left: 1.6rem;
 }
 .habitList_content {
-  font-weight: bold;
+  color: #272727;
+  font-size: 1.4rem;
+  margin-left: 1rem;
 }
 .habitList_numberOfAchievementDays {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #b4b4b4;
+  font-size: 1.2rem;
+  color: #db6b64;
   margin-top: 0.4rem;
+}
+.habitList_numberOfAchievementDays_icon {
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
 }

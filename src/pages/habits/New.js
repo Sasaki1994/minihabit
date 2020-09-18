@@ -48,10 +48,7 @@ const New = () => {
         text={"登録"}
         onClick={() => dispatch(registerHabit(habit)) && history.push("/")}
       />
-      <CancelingButton
-        className={style.buttonMargin}
-        onClick={() => setHabit(initialHabit)}
-      />
+      <CancelingButton className={style.buttonMargin} onClick={() => setHabit(initialHabit)} />
     </div>
   );
 };
