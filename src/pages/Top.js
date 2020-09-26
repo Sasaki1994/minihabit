@@ -27,7 +27,9 @@ const Top = () => {
   const habitList = habits.allIds.map((id) => habits.byId[id]);
   const recordHabit = habits.byId[modal.habitId];
 
-  const [recordNumber, setRecNum] = useState(recordHabit ? recordHabit.number : 1);
+  const [recordNumber, setRecNum] = useState(
+    recordHabit ? recordHabit.number : 1
+  );
 
   return (
     <>
