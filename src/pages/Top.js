@@ -40,9 +40,7 @@ const Top = () => {
           <Link to={"/habits/new"}>登録ページ</Link>
           <HeaderCalender />
           <ul className={style.habitList}>
-            {habitList.map((habit) => (
-              <HabitListItem key={habit.id} habit={habit} />
-            ))}
+            {habitList.map((habit) => <HabitListItem key={habit.id} habit={habit} />).reverse()}
           </ul>
         </Main>
       </Container>
