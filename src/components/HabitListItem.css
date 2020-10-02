@@ -36,3 +36,14 @@
   font-size: 1.2rem;
   margin-right: 0.4rem;
 }
+.habitList_editIcon {
+  color: #ccc;
+  font-size: 2.4rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+}
+.habitList_deleteIcon {
+  color: #ccc;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
