@@ -4,17 +4,17 @@ import "./Base.css";
 import "./App.css";
 import Routes from "./router/Routes";
 import { Provider } from "react-redux";
-import Store from "./Store";
+import store from "./Store";
 import { db } from "../firebase.config";
 
 const App = () => {
-  // actionがdispatchされるたびにstateをconsoleに表示
-  console.log(Store.getState());
-  Store.subscribe(() => {
-    console.log(Store.getState());
+  // actionがdispatchされるたびにstateをconsoleに表示;
+  console.log(store.getState());
+  store.subscribe(() => {
+    console.log(store.getState());
   });
 
-  // firestoreからデータを取得するサンプルコード
+  // // firestoreからデータを取得するサンプルコード
   const dbHabits = db
     .collection("users")
     .where("name", "==", "佐々木")
@@ -30,7 +30,7 @@ const App = () => {
   console.log(dbHabits);
 
   return (
-    <Provider store={Store}>
+    <Provider store={store}>
       <Routes />
     </Provider>
   );

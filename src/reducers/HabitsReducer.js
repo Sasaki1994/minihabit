@@ -1,11 +1,11 @@
 import { generateNewId } from "./utils/generateNewId";
 
-const initialHabitList = {
+const initialHabits = {
   byId: {},
   allIds: [],
 };
 
-export const habits = (state = initialHabitList, action) => {
+export const habits = (state = initialHabits, action) => {
   switch (action.type) {
     case "ADD_HABIT":
       let newState = { ...state };

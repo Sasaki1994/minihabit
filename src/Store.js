@@ -1,4 +1,7 @@
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./sagas";
 import { habits } from "./reducers/HabitsReducer";
 import { user } from "./reducers/UserReducer";
 import { modal } from "./reducers/ModalReducer";
@@ -12,7 +15,10 @@ const reducers = combineReducers({
   records,
 });
 
-export default createStore(
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(applyMiddleware(sagaMiddleware), devToolsEnhancer({}))
 );
+sagaMiddleware.run(rootSaga);
+export default store;
