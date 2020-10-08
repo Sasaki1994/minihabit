@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../actions/ModalAction";
 import { registerRecord } from "../actions/RecordsAction";
+import { AuthContext } from "../auth/AuthProvider";
 
 import Header from "../components/Header";
 import Container from "../components/Container";
@@ -30,11 +31,16 @@ const Top = () => {
   const [recordNumber, setRecNum] = useState(
     recordHabit ? recordHabit.number : 1
   );
+  const { currentUser } = useContext(AuthContext);
 
   // sagaサンプル
-  useEffect(() => {
-    dispatch({ type: "USER_FETCH_REQUESTED", payload: { userId: 2 } });
-  }, []);
+  currentUser &&
+    useEffect(() => {
+      dispatch({
+        type: "USER_FETCH_REQUESTED",
+        payload: { userId: currentUser["uid"] },
+      });
+    }, []);
 
   return (
     <>
