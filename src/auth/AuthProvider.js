@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase.config";
+import firebase, { db } from "../../firebase.config";
 
 // contextの作成
 export const AuthContext = React.createContext();
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // 新しいユーザーを作成しログインさせる関数
-  const signup = (email, password, confirmation) => {
+  const signup = (name, email, password, confirmation) => {
     if (password !== confirmation) {
       alert("パスワードとパスワード確認が一致しません");
       return null;
@@ -30,6 +30,12 @@ export const AuthProvider = ({ children }) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(function (res) {
+        db.collection("users").doc(res.user["uid"]).set({
+          name: name,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      })
       .catch(function (error) {
         if (error.code === "auth/weak-password") {
           alert("パスワードをセキュリティを高いものに変更してください");

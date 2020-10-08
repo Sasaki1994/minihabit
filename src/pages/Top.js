@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../actions/ModalAction";
@@ -50,7 +49,6 @@ const Top = () => {
         <Main>
           {modal.isOpen ? <Modal /> : ``}
           <h3>{user.name}さん</h3>
-          <Link to={"/habits/new"}>登録ページ</Link>
           <HeaderCalender />
           <ul className={style.habitList}>
             {habitList

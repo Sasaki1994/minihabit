@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
+import { Link } from "react-router-dom";
 
 import Input from "../../components/Input";
 import RegisteringButton from "../../components/RegisteringButton";
@@ -14,6 +15,11 @@ const Login = () => {
   const [user, setUser] = useState(initialUser);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const loginAndRedirect = () => {
+    login(user.email, user.password);
+    history.push("/");
+  };
 
   return (
     <div className={style.pageContainer}>
@@ -37,14 +43,13 @@ const Login = () => {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
 
-      <RegisteringButton
-        text={"ログイン"}
-        onClick={() => login(user.email, user.password) && history.push("/")}
-      />
+      <RegisteringButton text={"ログイン"} onClick={loginAndRedirect} />
       <CancelingButton
         className={style.buttonMargin}
         onClick={() => setUser(initialUser)}
       />
+      <div></div>
+      <Link to={"/users/sign_up"}>ユーザー登録</Link>
     </div>
   );
 };
