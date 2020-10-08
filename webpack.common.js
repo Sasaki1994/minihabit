@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -9,13 +9,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        options: { presets: ["@babel/env"] },
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader?modules"]
+        use: ["style-loader", "css-loader?modules"],
       },
-    ]
+    ],
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
@@ -24,9 +24,9 @@ module.exports = {
     filename: "bundle.js",
   },
   plugins: [
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "src/index.html"),
-        filename: "index.html"
-      })
-  ]
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/index.html"),
+      filename: "index.html",
+    }),
+  ],
 };
