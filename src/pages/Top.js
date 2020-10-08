@@ -33,8 +33,8 @@ const Top = () => {
 
   // sagaサンプル
   useEffect(() => {
-    dispatch({ type: "TEST" });
-  });
+    dispatch({ type: "USER_FETCH_REQUESTED", payload: { userId: 2 } });
+  }, []);
 
   return (
     <>
