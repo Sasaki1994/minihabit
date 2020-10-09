@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { openInputDataModal } from "../actions/ModalAction";
+import { openInputDataModal, openEditHabitModal } from "../actions/ModalAction";
 
 import commonStyle from "./Common.css";
 import style from "./HabitListItem.css";
@@ -34,7 +34,12 @@ const HabitListItem = ({ habit }) => {
           </p>
         </div>
         <div className={commonStyle.fl_alignCenter}>
-          <i className={`${style.habitList_editIcon} material-icons`}>edit</i>
+          <i
+            className={`${style.habitList_editIcon} material-icons`}
+            onClick={() => dispatch(openEditHabitModal(id))}
+          >
+            edit
+          </i>
           <i className={`${style.habitList_deleteIcon} material-icons`}>delete</i>
         </div>
       </div>

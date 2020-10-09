@@ -5,9 +5,10 @@ export const registerHabit = (habit, userId) => {
   };
 };
 
-export const editHabit = (habit) => {
+export const editHabit = (id, habit) => {
   return {
     type: "EDIT_HABIT",
+    id,
     habit,
   };
 };

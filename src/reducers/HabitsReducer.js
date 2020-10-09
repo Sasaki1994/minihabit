@@ -20,7 +20,11 @@ export const habits = (state = initialHabitList, action) => {
 
     case "EDIT_HABIT":
       let editedState = { ...state };
-      editedState.byId[action.habit.id] = action.habit;
+      // console.log("editedState");
+      // console.log(editedState);
+      // console.log("action.habit");
+      // console.log(action.habit);
+      editedState.byId[action.id] = action.habit;
       return editedState;
 
     case "DELETE_HABIT":
