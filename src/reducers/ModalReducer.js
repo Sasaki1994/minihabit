@@ -15,7 +15,7 @@ export const modal = (state = initialModalIsOpen, action) => {
       return { ...state, isOpen: true, isCreateHabitOpen: true };
 
     case "OPEN_EDIT_HABIT_MODAL":
-      return { ...state, isOpen: true, isEditHabitOpen: true };
+      return { ...state, isOpen: true, isEditHabitOpen: true, habitId: action.payload };
 
     case "OPEN_MODAL":
       return { ...state, isOpen: true, habitId: action.payload };
