@@ -1,4 +1,4 @@
-export const registerHabit = (habit, userId) => {
+export const registerHabit = (habit) => {
   return {
     type: "ADD_HABIT",
     habit,

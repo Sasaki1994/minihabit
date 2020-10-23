@@ -7,6 +7,9 @@ const initialRecords = {
 
 export const records = (state = initialRecords, action) => {
   switch (action.type) {
+    case "RECORDS_MAPPING_TO_STATE":
+      return { ...action.records };
+
     case "REGISTER_RECORD":
       let newState = { ...state };
       const newId = generateNewId(state);

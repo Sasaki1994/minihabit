@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { registerHabit } from "../../actions/HabitsAction";
@@ -12,6 +12,7 @@ const New = () => {
   const initialHabit = { name: "", number: 1, unit: "", userId: 1 };
   const [habit, setHabit] = useState(initialHabit);
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state);
   const history = useHistory();
 
   return (
@@ -46,9 +47,17 @@ const New = () => {
       />
       <RegisteringButton
         text={"登録"}
-        onClick={() => dispatch(registerHabit(habit)) && history.push("/")}
+        onClick={() =>
+          dispatch({
+            type: "CREATE_HABIT_REQUESTED",
+            action: { habit, userId: user.id },
+          }) && history.push("/")
+        }
       />
-      <CancelingButton className={style.buttonMargin} onClick={() => setHabit(initialHabit)} />
+      <CancelingButton
+        className={style.buttonMargin}
+        onClick={() => setHabit(initialHabit)}
+      />
     </div>
   );
 };

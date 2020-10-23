@@ -7,6 +7,9 @@ const initialHabits = {
 
 export const habits = (state = initialHabits, action) => {
   switch (action.type) {
+    case "HABITS_MAPPING_TO_STATE":
+      return { ...action.habits };
+
     case "ADD_HABIT":
       let newState = { ...state };
       const newId = generateNewId(state);
@@ -20,10 +23,6 @@ export const habits = (state = initialHabits, action) => {
 
     case "EDIT_HABIT":
       let editedState = { ...state };
-      // console.log("editedState");
-      // console.log(editedState);
-      // console.log("action.habit");
-      // console.log(action.habit);
       editedState.byId[action.id] = action.habit;
       return editedState;
 
@@ -33,6 +32,6 @@ export const habits = (state = initialHabits, action) => {
       return deletedState;
 
     default:
-      return state;
+      return { ...state };
   }
 };
