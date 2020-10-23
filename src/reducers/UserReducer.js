@@ -1,4 +1,4 @@
-const initialUser = { name: "Guest", email: "", password: "" };
+const initialUser = { name: "Guest" };
 
 export const user = (state = initialUser, action) => {
   switch (action.type) {
@@ -14,6 +14,6 @@ export const user = (state = initialUser, action) => {
       return { ...action.user };
 
     default:
-      return initialUser;
+      return { ...state };
   }
 };

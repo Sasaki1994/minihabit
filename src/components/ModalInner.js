@@ -25,7 +25,9 @@ const ModalInner = () => {
     modalInner = (
       <div>
         {/* <h2 className={style.modal_title}>{recordHabit.name}</h2> */}
-        <p className={style.modal_text}>目標: {`${recordHabit.number}${recordHabit.unit}`}</p>
+        <p className={style.modal_text}>
+          目標: {`${recordHabit.number}${recordHabit.unit}`}
+        </p>
         <div className={`${style.modal_input_wrapper} ${style.flex}`}>
           <label className={style.modal_text}>実績値：</label>
           <input
@@ -38,12 +40,16 @@ const ModalInner = () => {
         <button
           className={style.modal_btn}
           onClick={() =>
-            dispatch(registerRecord(modal.habitId, habit.number)) && dispatch(closeModal())
+            dispatch(registerRecord(modal.habitId, habit.number)) &&
+            dispatch(closeModal())
           }
         >
           登録
         </button>
-        <button className={style.modal_cancel} onClick={() => dispatch(closeModal())}>
+        <button
+          className={style.modal_cancel}
+          onClick={() => dispatch(closeModal())}
+        >
           キャンセル
         </button>
       </div>
@@ -80,11 +86,19 @@ const ModalInner = () => {
         </div>
         <button
           className={style.modal_btn}
-          onClick={() => dispatch(registerHabit(habit)) && dispatch(closeModal())}
+          onClick={() =>
+            dispatch({
+              type: "CREATE_HABIT_REQUESTED",
+              payload: { habit, userId: user.id },
+            }) && dispatch(closeModal())
+          }
         >
           登録
         </button>
-        <button className={style.modal_cancel} onClick={() => dispatch(closeModal())}>
+        <button
+          className={style.modal_cancel}
+          onClick={() => dispatch(closeModal())}
+        >
           キャンセル
         </button>
       </>
@@ -121,11 +135,16 @@ const ModalInner = () => {
         </div>
         <button
           className={style.modal_btn}
-          onClick={() => dispatch(editHabit(modal.habitId, habit)) && dispatch(closeModal())}
+          onClick={() =>
+            dispatch(editHabit(modal.habitId, habit)) && dispatch(closeModal())
+          }
         >
           保存
         </button>
-        <button className={style.modal_cancel} onClick={() => dispatch(closeModal())}>
+        <button
+          className={style.modal_cancel}
+          onClick={() => dispatch(closeModal())}
+        >
           キャンセル
         </button>
       </>
